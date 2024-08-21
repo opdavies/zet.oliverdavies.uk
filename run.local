@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+function clean {
+  rm -fr output_*
+}
+
+# Create a new note.
+function new {
+  if [[ "$1" == "" ]]; then
+    echo "Usage: ./run new <title>"
+    exit 1
+  fi
+
+  title="$1"
+  note_path="source/_notes"
+  note_count=$(find "$note_path" -type f | wc -l)
+  next_note=$((note_count + 1))
+  next_note_path="$note_path/$next_note.md"
+  date=$(date +"%Y-%m-%d %T")
+
+  {
+    echo "---"
+    echo "title: ${title}"
+    echo "date: ${date}"
+    echo "tags: []"
+    echo "---"
+    echo ""
+  } > "$next_note_path"
+
+  git add "$next_note_path"
+  git commit -m "$title"
+}
+
+# Generate and publish a new version of the website.
+function publish {
+  git push
+
+  clean
+  APP_ENV=production generate
+  rsync -avz output_prod/ ssh.oliverdavies.uk:/var/www/vhosts/zet.oliverdavies.uk
+}
