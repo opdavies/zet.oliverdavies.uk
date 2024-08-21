@@ -1,0 +1,25 @@
+{
+    "name": "opdavies/zet.oliverdavies.uk",
+    "description": "A skeleton Sculpin site.",
+    "license": "proprietory",
+    "authors": [
+        {
+            "name": "Oliver Davies",
+            "homepage": "https://www.oliverdavies.uk"
+        }
+    ],
+    "require": {
+        "sculpin/sculpin": "^3.0"
+    },
+    "cripts": {},
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.1-dev"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "sculpin/sculpin-theme-composer-plugin": true
+        }
+    }
+}

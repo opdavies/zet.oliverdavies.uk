@@ -1,0 +1,23 @@
+{% extends "base" %}
+
+{% block body %}
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+
+  {{ parent() }}
+{% endblock %}
+
+{% block content_wrapper %}
+  {% block content %}{% endblock %}
+
+  {% if page.tags is not empty %}
+    <h2>Tags</h2>
+
+    <ul>
+      {% for tag in page.tags|sort %}
+        <li>{{ tag }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
