@@ -9,6 +9,8 @@
 {% endblock %}
 
 {% block content_wrapper %}
+  {{ page.date|date }}
+
   {% block content %}{% endblock %}
 
   {% if page.tags is not empty %}
