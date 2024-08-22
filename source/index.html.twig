@@ -8,8 +8,7 @@ use: [notes]
   {% for note in data.notes %}
     <li>
       <a href="{{ note.url }}">
-        {{ note.date|date('c') }}:
-        {{ note.title }}
+        {{- note.date|date }}: {{ note.title -}}
       </a>
     </li>
   {% endfor %}
