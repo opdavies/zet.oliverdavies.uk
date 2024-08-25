@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content_wrapper %}
-  {{ page.date|date }}
+  <time date="{{ page.date|date('c') }}">{{ page.date|date }}</time>
 
   {% block content %}{% endblock %}
 
