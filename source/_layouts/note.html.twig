@@ -13,6 +13,16 @@
 
   {% block content %}{% endblock %}
 
+  {% if page.links is not empty %}
+    <h2>Links</h2>
+
+    <ul>
+      {% for url in page.links %}
+        <li><a href="{{ url }}">{{ url }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
   {% if page.tags is not empty %}
     <h2>Tags</h2>
 
