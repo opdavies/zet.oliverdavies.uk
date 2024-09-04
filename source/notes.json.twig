@@ -1,0 +1,16 @@
+---
+permalink: /notes.json
+use: [notes]
+---
+
+[
+  {% for note in data.notes|sort((a,b) => b.date <=> a.date) %}
+    {
+      "id": {{ note.filename|replace({".md": ""}) }},
+      "date": {{ note.date }},
+      "title": "{{ note.title }}",
+      "url": "{{ site.url }}/{{ note.url|trim("/") }}"
+    }
+    {%~ if not loop.last %},{% endif %}
+  {% endfor %}
+]
