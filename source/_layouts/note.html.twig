@@ -9,27 +9,37 @@
 {% endblock %}
 
 {% block content_wrapper %}
-  <time date="{{ page.date|date('c') }}">{{ page.date|date }}</time>
+  <div class="my-4">
+      <time date="{{ page.date|date('c') }}">{{ page.date|date }}</time>
+  </div>
 
-  {% block content %}{% endblock %}
+    <div class="markdown">
+      {% block content %}{% endblock %}
+    </div>
 
-  {% if page.links is not empty %}
-    <h2>Links</h2>
+  <div class="mt-10 gap-10 grid">
+      {% if page.links is not empty %}
+    <section>
+        <h2 class="text-lg font-bold">Links</h2>
 
-    <ul>
-      {% for url in page.links %}
-        <li><a href="{{ url }}">{{ url }}</a></li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+        <ul class="list-disc pl-4">
+          {% for url in page.links %}
+            <li><a class="text-primary underline hover:no-underline" href="{{ url }}">{{ url }}</a></li>
+          {% endfor %}
+        </ul>
+        </section>
+      {% endif %}
 
-  {% if page.tags is not empty %}
-    <h2>Tags</h2>
+      {% if page.tags is not empty %}
+    <section>
+        <h2 class="text-lg font-bold">Tags</h2>
 
-    <ul>
-      {% for tag in page.tags|sort %}
-        <li>{{ tag }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+        <ul class="list-disc pl-4">
+          {% for tag in page.tags|sort %}
+            <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+        </section>
+      {% endif %}
+    </div>
 {% endblock %}
