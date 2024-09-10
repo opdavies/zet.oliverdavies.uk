@@ -4,10 +4,10 @@ title: Zettelkasten for Oliver Davies (opdavies)
 use: [notes]
 ---
 
-<ul class="list-disc pl-4">
+<ul>
   {% for note in data.notes %}
     <li>
-      <a class="text-primary underline focus-visible:no-underline hover:no-underline" href="{{ note.url }}">
+      <a href="{{ note.url }}">
         {{- note.date|date }}: {{ note.title -}}
       </a>
     </li>

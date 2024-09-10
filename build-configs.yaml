@@ -2,9 +2,6 @@
 name: zet.oliverdavies.uk
 template: sculpin-site
 parameters:
-  git:
-    ignore:
-      - /source/dist/
   nix:
     devshell:
       packages:

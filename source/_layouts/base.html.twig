@@ -5,23 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }} - {{ site.name }}</title>
-    <link rel="stylesheet" href="/dist/app.css">
   </head>
-  <body class="dark:bg-black dark:text-white">
+  <body>
     {% block body %}
-      <div class="mx-auto max-w-3xl">
-          <h1 class="text-4xl font-bold dark:text-white">{% block page_title %}{{ page.title }}{% endblock %}</h1>
+      <h1>{% block page_title %}{{ page.title }}{% endblock %}</h1>
 
-          {% block content_wrapper %}
-            {% block content %}{% endblock %}
-          {% endblock %}
+      {% block content_wrapper %}
+        {% block content %}{% endblock %}
+      {% endblock %}
 
-          <hr class="my-10" />
+      <hr />
 
-          <footer class="mb-6">
-            <p>This website is open source. <a class="text-primary underline hover:no-underline" href="{{ site.github.url }}/edit/main/source/{{ page.relative_pathname }}">Improve this page</a>.</p>
-          </footer>
-        {% endblock %}
-    <div>
+      <footer>
+        <p>This website is open source. <a href="{{ site.github.url }}/edit/main/source/{{ page.relative_pathname }}">Improve this page</a>.</p>
+      </footer>
+    {% endblock %}
   </body>
 </html>
