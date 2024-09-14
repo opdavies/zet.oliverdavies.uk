@@ -1,0 +1,10 @@
+{% if tags is not empty %}
+  <h2>Tags</h2>
+
+  <ul>
+    {% for tag in tags|sort %}
+      <li>{{ tag }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+

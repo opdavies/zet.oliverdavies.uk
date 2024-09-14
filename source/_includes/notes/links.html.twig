@@ -1,0 +1,9 @@
+{% if links is not empty %}
+  <h2>Links</h2>
+
+  <ul>
+    {% for url in links %}
+      <li><a href="{{ url }}">{{ url }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

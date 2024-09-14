@@ -1,0 +1,13 @@
+{% if related and notes %}
+  <section>
+    <h2>Related</h2>
+
+    <ul>
+      {% for note in notes if related|filter((title) => title == note.title) %}
+        <li>
+          <a href="{{ note.url|trim('/', 'right') }}">{{ note.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
