@@ -5,7 +5,7 @@
     <ul>
       {% for zet in zets if related|filter((title) => title == zet.title) %}
         <li>
-          <a href="{{ zet.url }}">{{ zet.title }}</a>
+          <a href="{{ zet.url|trim('/', 'right') }}">{{ zet.title }}</a>
         </li>
       {% endfor %}
     </ul>

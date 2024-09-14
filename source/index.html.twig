@@ -7,7 +7,7 @@ use: [zets]
 <ul>
   {% for zet in data.zets %}
     <li>
-      <a href="{{ zet.url }}">
+      <a href="{{ zet.url|trim('/', 'right') }}">
         {{- zet.date|date }}: {{ zet.title -}}
       </a>
     </li>
