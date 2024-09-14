@@ -1,10 +1,10 @@
 ---
 permalink: /notes.json
-use: [notes]
+use: [zets]
 ---
 
 [
-  {% for note in data.notes|sort((a,b) => b.date <=> a.date) %}
+  {% for note in data.zets|sort((a,b) => b.date <=> a.date) %}
     {
       "id": {{ note.filename|replace({".md": ""}) }},
       "date": {{ note.date }},

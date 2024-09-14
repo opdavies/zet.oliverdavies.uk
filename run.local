@@ -16,10 +16,10 @@ function new {
   fi
 
   title="$1"
-  note_path="source/_notes"
-  note_count=$(find "$note_path" -type f | wc -l)
-  next_note=$((note_count + 1))
-  next_note_path="$note_path/$next_note.md"
+  zet_path="source/_zets"
+  zet_count=$(find "$zet_path" -type f | wc -l)
+  next_zet=$((zet_count + 1))
+  next_zet_path="$zet_path/$next_zet.md"
   date=$(date +"%Y-%m-%d %T")
 
   {
@@ -29,9 +29,9 @@ function new {
     echo "tags: []"
     echo "---"
     echo ""
-  } > "$next_note_path"
+  } > "$next_zet_path"
 
-  git add "$next_note_path"
+  git add "$next_zet_path"
   git commit -m "$title"
 }
 

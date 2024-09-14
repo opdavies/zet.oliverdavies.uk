@@ -1,14 +1,14 @@
 ---
 layout: page
 title: Zettelkasten for Oliver Davies (opdavies)
-use: [notes]
+use: [zets]
 ---
 
 <ul>
-  {% for note in data.notes %}
+  {% for zet in data.zets %}
     <li>
-      <a href="{{ note.url }}">
-        {{- note.date|date }}: {{ note.title -}}
+      <a href="{{ zet.url }}">
+        {{- zet.date|date }}: {{ zet.title -}}
       </a>
     </li>
   {% endfor %}

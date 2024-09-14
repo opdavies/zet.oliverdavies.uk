@@ -13,13 +13,13 @@
 
   {% block content %}{% endblock %}
 
-  {% include "notes/links" with { links: page.links } %}
+  {% include "zets/links" with { links: page.links } %}
 
-  {% include "notes/related" with {
-    notes: data.notes,
+  {% include "zets/related" with {
+    zets: data.zets,
     related: page.related,
   } %}
 
-{% include "notes/tags" with { tags: page.tags } %}
+{% include "zets/tags" with { tags: page.tags } %}
 
 {% endblock %}

@@ -1,0 +1,13 @@
+{% if related and zets %}
+  <section>
+    <h2>Related</h2>
+
+    <ul>
+      {% for zet in zets if related|filter((title) => title == zet.title) %}
+        <li>
+          <a href="{{ zet.url }}">{{ zet.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
