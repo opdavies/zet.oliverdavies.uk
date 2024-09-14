@@ -32,4 +32,18 @@
       {% endfor %}
     </ul>
   {% endif %}
+
+  {% if page.related and data.notes %}
+    <section>
+      <h2>Related</h2>
+
+      <ul>
+        {% for note in data.notes if page.related|filter((title) => title == note.title) %}
+          <li>
+            <a href="{{ note.url|trim('/', 'right') }}">{{ note.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
 {% endblock %}
